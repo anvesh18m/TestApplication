@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:vm="clr-namespace:TestApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="TestApp.Views.frmKitchan" Padding="10">
+    <TabbedPage.BindingContext>
+        <vm:KitchenVM/>
+    </TabbedPage.BindingContext>
+
+    <ContentPage Title="Plan" IconImageSource="Plan.png" >
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </ContentPage>
+
+    <ContentPage Title="Cook Now" IconImageSource="CookNow.png" >
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </ContentPage>
+
+
+    <ContentPage Title="Home" IconImageSource="Home.png" x:Name="HomePage">
+        <ScrollView>
+            <StackLayout Spacing="30">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Group.png" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="Fill"/>
+                    <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Text="Recipe of the Day" FontAttributes="Bold"/>
+                    
+                </Grid>
+                
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Popular Recipes" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+
+                </StackLayout>
+                <CollectionView ItemsSource="{Binding ColRecips}" HeightRequest="200">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="10" HasShadow="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding RecipsImage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding RecipsName}" FontSize="13" FontAttributes="Bold" LineBreakMode="WordWrap"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Suggested Meal Plan" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+                    
+                </StackLayout>
+                <CollectionView ItemsSource="{Binding ColMeals}" HeightRequest="300">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="200"/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding MealDay}" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                                <Image Grid.Row="1" Grid.Column="0" Source="{Binding MealImage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                </Image>
+                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding MealItem}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Suggested Contents" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+
+                </StackLayout>
+                <CollectionView ItemsSource="{Binding ColContent}" HeightRequest="250">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="10" HasShadow="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding ContentImage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding ContentData}" FontSize="13" FontAttributes="Bold" LineBreakMode="WordWrap"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding ContentArtical}" FontSize="10" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            
+            
+        </ScrollView>
+       
+    </ContentPage>
+
+    <ContentPage Title="Learn" IconImageSource="Learn.png" >
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </ContentPage>
+
+    <ContentPage Title="Store" IconImageSource="Store.png" >
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+    </ContentPage>
+
+</TabbedPage>
